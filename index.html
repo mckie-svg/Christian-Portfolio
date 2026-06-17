@@ -476,12 +476,12 @@ function toggleAuthModal() {
   document.body.style.overflow = authModal.classList.contains('hidden') ? '' : 'hidden';
 
   if (!authModal.classList.contains('hidden')) {
-    // Initialize Google Sign-In with Redirect mode for Web Server usage
+    // Initialize Google Sign-In with Redirect mode for the new web server callback
     google.accounts.id.initialize({
       client_id: "796454729595-spsmc6tr1t2anv1qvv23k68pk63q6usl.apps.googleusercontent.com",
       callback: handleCredentialResponse,
-      ux_mode: "redirect", 
-      login_uri: "https://pristine-seven-pi.vercel.app/auth-callback", 
+      ux_mode: "redirect",
+      login_uri: "https://christian-portfolio-ebon-six.vercel.app/auth-callback",
     });
     google.accounts.id.renderButton(
       document.getElementById("google-signin-btn"),
