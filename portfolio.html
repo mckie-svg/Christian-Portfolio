@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Christian Arevalo — UI/UX Designer & Web Developer</title>
+<meta name="description" content="Premium portfolio of Alex Morgan — UI/UX designer and web developer crafting intuitive interfaces and high-performance websites." />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          brand: { DEFAULT: '#3B82F6', dark: '#0A0A0B', surface: '#161618' },
+        },
+        fontFamily: {
+          display: ['Syne', 'sans-serif'],
+          sans: ['Inter', 'sans-serif'],
+        },
+        boxShadow: {
+          glow: '0 0 40px -8px rgba(59,130,246,0.5)',
+          'glow-lg': '0 0 60px -10px rgba(59,130,246,0.7)',
+        },
+      },
+    },
+  };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background: #0A0A0B; color: #fff; font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+  ::selection { background: #3B82F6; color: #fff; }
+  .glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+  @keyframes fade-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+  @keyframes pulse-glow { 0%,100% { opacity: 0.4; } 50% { opacity: 0.7; } }
+  .animate-fade-up { animation: fade-up 0.8s cubic-bezier(0.16,1,0.3,1) both; }
+  .animate-float { animation: float 6s ease-in-out infinite; }
+  .animate-pulse-glow { animation: pulse-glow 4s ease-in-out infinite; }
+  .hide-scroll::-webkit-scrollbar { display: none; }
+  .reveal { opacity: 0; }
+</style>
+</head>
+<body class="bg-brand-dark text-white">
+
+<!-- NAV -->
+<nav id="nav" class="fixed top-0 w-full z-40 px-6 py-5 transition-all">
+  <div class="max-w-7xl mx-auto flex justify-between items-center">
+    <a href="#" class="font-display text-xl font-bold">CHRISTIAN<span class="text-brand">.</span></a>
+    <div class="hidden md:flex gap-8 text-sm font-medium text-white/60">
+      <a href="#work" class="hover:text-brand transition-colors">Work</a>
+      <a href="#about" class="hover:text-brand transition-colors">About</a>
+      <a href="#services" class="hover:text-brand transition-colors">Services</a>
+      <a href="#contact" class="hover:text-brand transition-colors">Contact</a>
+    </div>
+    <a href="#contact" class="px-5 py-2 bg-brand text-white text-sm font-bold rounded-full hover:shadow-glow transition-all">Hire Me</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero" class="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden pt-24">
+  <div id="hero-glow" class="absolute top-1/4 left-1/3 w-[40rem] h-[40rem] rounded-full blur-[140px] -z-10 animate-pulse-glow" style="background: rgba(59,130,246,0.35); transition: transform 0.4s ease-out;"></div>
+  <div class="absolute bottom-0 right-10 w-72 h-72 rounded-full blur-[100px] -z-10 opacity-50" style="background: rgba(59,130,246,0.25);"></div>
+
+  <div class="absolute top-32 left-12 hidden lg:block animate-float">
+    <div class="glass rounded-2xl p-3 flex items-center gap-2 text-xs">
+      <svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"/><path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"/><path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"/><path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"/><path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"/></svg>
+      <span class="text-white/60">Designing in Figma</span>
+    </div>
+  </div>
+  <div class="absolute top-1/2 right-12 hidden lg:block animate-float" style="animation-delay: 1.5s;">
+    <div class="glass rounded-2xl p-3 flex items-center gap-2 text-xs">
+      <svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      <span class="text-white/60">Shipping React</span>
+    </div>
+  </div>
+
+  <div class="max-w-4xl text-center space-y-8 animate-fade-up">
+    <div class="flex flex-wrap items-center justify-center gap-3">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 glass rounded-full text-xs font-semibold tracking-widest text-brand uppercase">
+        <span class="w-1.5 h-1.5 rounded-full bg-brand animate-pulse"></span>
+        Available for new projects
+      </div>
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 border border-brand/30 bg-brand/10 rounded-full text-xs font-semibold tracking-widest text-white/90 uppercase">
+        <span class="text-brand">✦</span> Growing in Video Editing & Content Creation
+      </div>
+    </div>
+    <h1 class="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] font-bold tracking-tight">
+      UI/UX Designer<br/><span class="text-brand">& Web Developer</span>
+    </h1>
+    <p class="text-lg md:text-xl text-white/50 max-w-2xl mx-auto leading-relaxed">
+      I craft intuitive digital experiences, design modern interfaces, and build high-performance websites for ambitious brands.
+    </p>
+    <div class="flex flex-col md:flex-row items-center justify-center gap-4 pt-4">
+      <a href="#work" class="group w-full md:w-auto px-8 py-4 bg-brand text-white rounded-xl font-bold inline-flex items-center justify-center gap-2 shadow-glow hover:shadow-glow-lg transition-all hover:-translate-y-0.5">
+        View My Work
+        <svg class="w-4 h-4 transition-transform group-hover:rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </a>
+      <a href="#contact" class="w-full md:w-auto px-8 py-4 glass rounded-xl font-bold hover:bg-white/5 transition-all">Contact Me</a>
+    </div>
+  </div>
+
+  <div class="mt-24 grid grid-cols-2 md:grid-cols-4 gap-12 border-t border-white/10 pt-12 w-full max-w-4xl reveal">
+    <div class="text-center"><div class="font-display text-3xl md:text-4xl font-bold"><span class="stat-number" data-target="5">0</span>+</div><div class="text-xs text-white/40 uppercase tracking-widest mt-2">Projects Done</div></div>
+    <div class="text-center"><div class="font-display text-3xl md:text-4xl font-bold"><span class="stat-number" data-target="5">0</span></div><div class="text-xs text-white/40 uppercase tracking-widest mt-2">Happy Clients</div></div>
+    <div class="text-center"><div class="font-display text-3xl md:text-4xl font-bold"><span class="stat-number" data-target="1">0</span>+</div><div class="text-xs text-white/40 uppercase tracking-widest mt-2">Years Experience</div></div>
+    <div class="text-center"><div class="font-display text-3xl md:text-4xl font-bold"><span class="stat-number" data-target="100">0</span>%</div><div class="text-xs text-white/40 uppercase tracking-widest mt-2">Satisfaction</div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-32 px-6 reveal">
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-start">
+    <div class="lg:col-span-5">
+      <div class="relative">
+        <div class="absolute -inset-4 rounded-3xl blur-2xl opacity-40 -z-10" style="background: rgba(59,130,246,0.5);"></div>
+        <img src="img/arevalo.png" alt="Alex Morgan portrait" loading="lazy" class="w-full rounded-3xl object-cover aspect-[4/5] border border-white/10"/>
+      </div>
+    </div>
+    <div class="lg:col-span-7 space-y-8">
+      <div>
+        <h2 class="text-sm font-bold text-brand uppercase tracking-[0.3em] mb-4">About</h2>
+        <h3 class="font-display text-4xl md:text-5xl font-bold leading-tight">Design that ships.<br/>Code that scales.</h3>
+      </div>
+      <p class="text-lg text-white/60 leading-relaxed">
+        I'm Alex — a designer and developer with six years of experience building digital products for startups and studios. My work sits at the intersection of carefully considered interfaces and production-grade engineering.
+      </p>
+      <div class="grid sm:grid-cols-3 gap-4 pt-4">
+        <div class="glass rounded-2xl p-6 hover:border-brand/40 transition-all hover:-translate-y-1">
+          <div class="w-10 h-10 bg-brand/10 rounded-xl flex items-center justify-center text-brand mb-4">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"/><path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"/><path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"/><path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"/><path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"/></svg>
+          </div>
+          <h4 class="font-bold mb-3 text-sm uppercase tracking-wider">Design</h4>
+          <ul class="space-y-1.5 text-sm text-white/60"><li>UI/UX Design</li><li>Wireframing</li><li>Prototyping</li><li>User Research</li></ul>
+        </div>
+        <div class="glass rounded-2xl p-6 hover:border-brand/40 transition-all hover:-translate-y-1">
+          <div class="w-10 h-10 bg-brand/10 rounded-xl flex items-center justify-center text-brand mb-4">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h4 class="font-bold mb-3 text-sm uppercase tracking-wider">Development</h4>
+          <ul class="space-y-1.5 text-sm text-white/60"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Responsive Design</li></ul>
+        </div>
+        <div class="glass rounded-2xl p-6 hover:border-brand/40 transition-all hover:-translate-y-1">
+          <div class="w-10 h-10 bg-brand/10 rounded-xl flex items-center justify-center text-brand mb-4">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          </div>
+          <h4 class="font-bold mb-3 text-sm uppercase tracking-wider">Backend</h4>
+          <ul class="space-y-1.5 text-sm text-white/60"><li>PHP</li><li>MySQL</li><li>REST APIs</li><li>Performance</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work" class="py-32 px-6 reveal">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+      <div>
+        <h2 class="text-sm font-bold text-brand uppercase tracking-[0.3em] mb-4">Portfolio</h2>
+        <h3 class="font-display text-4xl md:text-5xl font-bold">Selected Works</h3>
+      </div>
+      <div class="flex gap-1 glass rounded-xl p-1 w-fit">
+        <button data-tab="uiux" class="tab-btn active px-5 py-2.5 rounded-lg text-sm font-medium transition-all bg-brand text-white shadow-glow">UI/UX Design</button>
+        <button data-tab="web" class="tab-btn px-5 py-2.5 rounded-lg text-sm font-medium transition-all text-white/60 hover:text-white">Web Development</button>
+      </div>
+    </div>
+    <div id="project-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="py-32 px-6 reveal" style="background: rgba(22,22,24,0.5);">
+  <div class="max-w-7xl mx-auto">
+    <div class="max-w-2xl mb-16">
+      <h2 class="text-sm font-bold text-brand uppercase tracking-[0.3em] mb-4">Services</h2>
+      <h3 class="font-display text-4xl md:text-5xl font-bold">What I do — end to end.</h3>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6" id="services-grid"></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="py-32 px-6 reveal">
+  <div class="max-w-4xl mx-auto text-center">
+    <h2 class="text-sm font-bold text-brand uppercase tracking-[0.3em] mb-4">Testimonials</h2>
+    <h3 class="font-display text-4xl md:text-5xl font-bold mb-16">Words from clients</h3>
+    <div class="relative glass rounded-3xl p-10 md:p-16 min-h-[280px] flex flex-col justify-center">
+      <p id="t-quote" class="font-display text-2xl md:text-3xl leading-snug mb-8"></p>
+      <div><p id="t-name" class="font-bold"></p><p id="t-role" class="text-sm text-white/50"></p></div>
+      <div class="flex justify-center gap-2 mt-10">
+        <button id="t-prev" class="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-brand transition-colors">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div id="t-dots" class="flex items-center gap-2"></div>
+        <button id="t-next" class="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-brand transition-colors">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-32 px-6 reveal">
+  <div class="max-w-7xl mx-auto glass rounded-[40px] p-8 md:p-16 grid lg:grid-cols-2 gap-12">
+    <div>
+      <h2 class="text-sm font-bold text-brand uppercase tracking-[0.3em] mb-4">Contact</h2>
+      <h3 class="font-display text-4xl md:text-5xl font-bold mb-6 leading-tight">Let's create something <span class="text-brand">extraordinary</span> together.</h3>
+      <p class="text-white/60 mb-10 max-w-md">Currently accepting new projects. Reach out for a free consultation — I usually reply within a day.</p>
+      <div class="space-y-4">
+        <a href="mailto:hello@alexmorgan.studio" class="flex items-center gap-4 group">
+          <div class="w-10 h-10 bg-brand/10 text-brand rounded-full flex items-center justify-center">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <span class="group-hover:text-brand transition-colors">hello@alexmorgan.studio</span>
+        </a>
+        <div class="flex items-center gap-4">
+          <div class="w-10 h-10 bg-brand/10 text-brand rounded-full flex items-center justify-center">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <span class="text-white/60">Remote / London, UK</span>
+        </div>
+        <div class="flex gap-3 pt-4">
+          <a href="#" aria-label="GitHub" class="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-brand transition-colors">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn" class="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-brand transition-colors">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" aria-label="Twitter" class="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-brand transition-colors">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <form id="contact-form" class="space-y-5">
+      <div class="grid sm:grid-cols-2 gap-5">
+        <div class="space-y-2"><label class="text-xs uppercase tracking-widest text-white/50 font-medium">Full Name</label>
+          <input name="name" required placeholder="John Doe" class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-brand transition-colors"/></div>
+        <div class="space-y-2"><label class="text-xs uppercase tracking-widest text-white/50 font-medium">Email</label>
+          <input name="email" type="email" required placeholder="john@example.com" class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-brand transition-colors"/></div>
+      </div>
+      <div class="space-y-2"><label class="text-xs uppercase tracking-widest text-white/50 font-medium">Subject</label>
+        <input name="subject" required placeholder="Project inquiry" class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-brand transition-colors"/></div>
+      <div class="space-y-2"><label class="text-xs uppercase tracking-widest text-white/50 font-medium">Message</label>
+        <textarea name="message" required rows="5" placeholder="Tell me about your project..." class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-brand transition-colors resize-none"></textarea></div>
+      <button id="submit-btn" type="submit" class="w-full py-4 bg-brand text-white rounded-xl font-bold hover:shadow-glow-lg transition-all disabled:opacity-60 inline-flex items-center justify-center gap-2">
+        <span id="btn-label">Send Message</span>
+      </button>
+      <p id="form-msg" class="text-sm text-center hidden"></p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-12 px-6 border-t border-white/10">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+    <div class="font-display text-2xl font-bold">ALEX<span class="text-brand">.</span></div>
+    <div class="flex gap-8 text-sm text-white/50">
+      <a href="#about" class="hover:text-white transition-colors">About</a>
+      <a href="#work" class="hover:text-white transition-colors">Work</a>
+      <a href="#services" class="hover:text-white transition-colors">Services</a>
+      <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+    </div>
+    <p class="text-xs text-white/40">© 2026 Alex Morgan. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- PROJECT MODAL -->
+<div id="modal" class="fixed inset-0 z-50 bg-brand-dark/80 backdrop-blur-md overflow-y-auto hidden">
+  <div class="min-h-screen p-4 md:p-12 flex items-start justify-center">
+    <div id="modal-card" class="w-full max-w-3xl bg-brand-surface border border-white/10 rounded-3xl overflow-hidden"></div>
+  </div>
+</div>
+
+<script>
+/* DATA */
+const PROJECTS = [
+  { id:'nexus', cat:'uiux', title:'Nexus Finance Dashboard', tagline:'Wealth management for high-net-worth clients', description:'Comprehensive trading and portfolio analytics.', image:'project-fintech.jpg', tags:['Figma','User Research','Prototyping'], overview:'Nexus is a wealth management product re-imagined for power users — real-time portfolio analytics, multi-asset trading, and a calm, focused interface.', process:'14 stakeholder interviews, 4 mapped user journeys, 80+ screens designed across desktop and mobile.', challenges:'Dense data visualization without losing scannability; multi-currency switching without breaking flow.', solutions:'A modular widget grid, micro-typography for numerics, unified command palette.', link:'#' },
+  { id:'chronos', cat:'uiux', title:'Chronos Luxury Watches', tagline:'An elevated e-commerce experience', description:'Premium storefront with cinematic storytelling.', image:'project-watches.jpg', tags:['UX Design','Adobe XD','Prototyping'], overview:'A flagship e-commerce concept for a Swiss horology house — product as hero, story as commerce.', process:'Competitor audit, content-first IA, prototyped key flows with motion specs.', challenges:'Balancing brand storytelling against conversion fundamentals.', solutions:'Split hero, modular editorial blocks, effortless checkout.', link:'#' },
+  { id:'atlas', cat:'uiux', title:'Atlas Travel App', tagline:'Trip planning rebuilt around moments', description:'Mobile-first journey planner with offline maps.', image:'project-analytics.jpg', tags:['User Research','Wireframing','Figma'], overview:'Atlas turns travel from a checklist into a story — collaborative itineraries, smart routing, beautiful offline mode.', process:'20 user interviews, 3 prototyping rounds, usability testing with measurable task success.', challenges:'Offline-first data architecture without sacrificing real-time updates.', solutions:'Timeline-first UI, sync indicators, native-feeling gestures.', link:'#' },
+  { id:'blackpaprika', cat:'web', title:'BlackPaprika', tagline:'Premium culinary branding & e-commerce', description:'A high-end platform for artisanal spices and chef-curated content.', image:'img/blackpaprika.png', tags:['Next.js','Tailwind','Shopify'], overview:'BlackPaprika is a digital storefront designed for a premium culinary brand, focusing on high-resolution imagery and seamless shopping flows.', process:'Market research, SEO-optimized architecture, and custom checkout integration.', challenges:'Maintaining high performance with large image assets and complex filtering.', solutions:'Next.js Image optimization, server-side rendering, and a lightweight state management system.', link:'http://blackpaprikadumaguete.fast-page.org/', github:'#' },
+  { id:'rydemycar', cat:'web', title:'RydeMyCar', tagline:'Peer-to-peer vehicle marketplace', description:'Scalable rental platform connecting car owners with local renters.', image:'img/rydemycar.png', tags:['TypeScript','Node.js','Firebase'], overview:'RydeMyCar is a peer-to-peer vehicle sharing platform that allows owners to monetize their cars safely through a verified marketplace.', process:'User flow mapping for verification, booking engine development, and real-time location tracking.', challenges:'Trust and safety features including ID verification and real-time availability sync.', solutions:'Integrated Stripe Connect for payments and Google Maps API for intuitive vehicle discovery.', link:'https://rydemycar.vercel.app/', github:'#' },
+  { id:'pristine', cat:'web', title:'Pristine', tagline:'Premium automotive detailing platform', description:'A high-performance booking and management system for luxury car care.', image:'img/pristine.png', tags:['React','Tailwind','Firebase'], overview:'Pristine is a specialized platform for luxury car detailing, featuring a seamless booking flow, service management, and client portal.', process:'Requirement gathering from industry experts, UI/UX design in Figma, and full-stack development.', challenges:'Implementing a real-time scheduling system that avoids overbooking across multiple service bays.', solutions:'A custom reservation engine with Firebase real-time listeners and a modular service selection UI.', link:'https://pristine-seven-pi.vercel.app/', github:'#' },
+];
+
+const SERVICES = [
+  { icon:'<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L13.09 8.26 19 7l-4.74 4.74L22 14l-7.91-1.09L13 22l-2-7.91L4 17l4.74-4.74L2 11l7.91-1.09z"/></svg>', title:'UI/UX Design', desc:'Interface and experience design grounded in research, prototyping, and considered visual systems.', items:['User Interface Design','User Experience Design','Wireframing','Prototyping'] },
+  { icon:'<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>', title:'Web Development', desc:'Hand-built, performant websites and web applications with modern tooling and clean code.', items:['Business Websites','Portfolio Websites','E-commerce Development','Custom Web Apps'] },
+  { icon:'<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>', title:'Product Strategy', desc:'Bridging brand, user needs, and engineering reality with a clear, opinionated plan.', items:['Audits','Design Systems','Roadmapping','Consulting'] },
+];
+
+const TESTIMONIALS = [
+  { name:'Sarah Jenkins', role:'Founder, Lumina Labs', quote:'The transition from design mockups to a live site was seamless. The attention to subtle interaction details is what sets Alex apart.' },
+  { name:'Marcus Chen', role:'Product Lead, Verde Group', quote:"We've worked with five agencies. This was the first time the result actually matched the pitch — and beat it." },
+  { name:'Priya Anand', role:'CEO, Atlas Travel', quote:'Calm, fast, and quietly opinionated. Alex made design decisions that we didn\'t know we needed.' },
+];
+
+/* NAV SCROLL */
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('glass', window.scrollY > 20);
+});
+
+/* HERO PARALLAX */
+const glow = document.getElementById('hero-glow');
+document.addEventListener('mousemove', (e) => {
+  const x = (e.clientX / window.innerWidth - 0.5) * 30;
+  const y = (e.clientY / window.innerHeight - 0.5) * 30;
+  glow.style.transform = `translate(${x}px, ${y}px)`;
+});
+
+/* PROJECTS */
+let currentTab = 'uiux';
+function renderProjects() {
+  const grid = document.getElementById('project-grid');
+  grid.innerHTML = PROJECTS.filter(p => p.cat === currentTab).map((p, i) => `
+    <button onclick="openModal('${p.id}')" class="group text-left animate-fade-up" style="animation-delay:${i*80}ms">
+      <div class="relative aspect-[4/3] overflow-hidden rounded-2xl bg-brand-surface border border-white/10">
+        <img src="${p.image}" alt="${p.title}" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div class="absolute bottom-4 right-4 w-10 h-10 bg-brand text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </div>
+      </div>
+      <div class="mt-5 space-y-3">
+        <div class="flex gap-2 flex-wrap">${p.tags.slice(0,3).map(t=>`<span class="text-[10px] px-2 py-1 glass rounded-full text-white/60 uppercase tracking-wider">${t}</span>`).join('')}</div>
+        <h4 class="text-xl font-display font-bold group-hover:text-brand transition-colors">${p.title}</h4>
+        <p class="text-sm text-white/60">${p.description}</p>
+      </div>
+    </button>
+  `).join('');
+}
+document.querySelectorAll('.tab-btn').forEach(b => {
+  b.addEventListener('click', () => {
+    currentTab = b.dataset.tab;
+    document.querySelectorAll('.tab-btn').forEach(x => {
+      const active = x.dataset.tab === currentTab;
+      x.classList.toggle('bg-brand', active);
+      x.classList.toggle('text-white', active);
+      x.classList.toggle('shadow-glow', active);
+      x.classList.toggle('text-white/60', !active);
+    });
+    renderProjects();
+  });
+});
+renderProjects();
+
+/* MODAL */
+const modal = document.getElementById('modal');
+function openModal(id) {
+  const p = PROJECTS.find(x => x.id === id);
+  document.getElementById('modal-card').innerHTML = `
+    <div class="relative aspect-[21/9] bg-brand-surface">
+      <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover"/>
+      <button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-brand transition-colors">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="p-6 md:p-10 space-y-6">
+      <div>
+        <div class="flex gap-2 flex-wrap mb-4">${p.tags.map(t=>`<span class="text-[10px] px-2 py-1 glass rounded-full text-white/60 uppercase tracking-wider">${t}</span>`).join('')}</div>
+        <h2 class="font-display text-2xl md:text-4xl font-bold mb-2">${p.title}</h2>
+        <p class="text-lg text-white/60">${p.tagline}</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-x-8 gap-y-4 text-sm leading-relaxed">
+        ${['overview','process','challenges','solutions'].map(k=>`
+          <div><h4 class="text-xs uppercase tracking-widest text-brand font-bold mb-2">${k}</h4><p class="text-white/60">${p[k]}</p></div>
+        `).join('')}
+      </div>
+      <div class="flex flex-wrap gap-3 pt-4 border-t border-white/10">
+        <button onclick="closeModal()" class="px-6 py-3 glass rounded-xl text-sm font-medium hover:bg-white/5 inline-flex items-center gap-2">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg> Back
+        </button>
+        ${p.link && p.link !== '#' ? `<button onclick="handleLiveDemo('${p.id}')" class="px-6 py-3 bg-brand text-white rounded-xl text-sm font-bold hover:shadow-glow inline-flex items-center gap-2">Live Demo <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></button>` : ''}
+        ${p.github?`<a href="${p.github}" class="px-6 py-3 glass rounded-xl text-sm font-medium hover:bg-white/5 inline-flex items-center gap-2">GitHub</a>`:''}
+      </div>
+    </div>`;
+  modal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+
+function handleLiveDemo(id) {
+  const p = PROJECTS.find(x => x.id === id);
+  const gated = ['blackpaprika', 'rydemycar', 'pristine'];
+  
+  if (gated.includes(id)) {
+    const confirmAccess = confirm(`Access to the live demo for "${p.title}" is restricted for security and client confidentiality. Would you like to request access credentials via email?`);
+    if (confirmAccess) {
+      window.location.href = `mailto:hello@alexmorgan.studio?subject=Access Request: ${p.title} Demo&body=Hi Christian,%0D%0A%0D%0AI would like to request access credentials to view the live demo for ${p.title}.%0D%0A%0D%0AThank you!`;
+    }
+  } else {
+    window.open(p.link, '_blank');
+  }
+}
+
+function closeModal() { modal.classList.add('hidden'); document.body.style.overflow=''; }
+modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+/* SERVICES */
+document.getElementById('services-grid').innerHTML = SERVICES.map(s => `
+  <div class="glass rounded-3xl p-8 hover:border-brand/40 transition-all hover:-translate-y-1 group">
+    <div class="w-12 h-12 bg-brand/10 rounded-xl flex items-center justify-center text-brand mb-6 group-hover:scale-110 transition-transform">${s.icon}</div>
+    <h4 class="text-xl font-display font-bold mb-3">${s.title}</h4>
+    <p class="text-sm text-white/60 leading-relaxed mb-6">${s.desc}</p>
+    <ul class="space-y-2 text-sm">${s.items.map(i=>`<li class="flex items-center gap-2 text-white/60"><span class="w-1 h-1 rounded-full bg-brand"></span>${i}</li>`).join('')}</ul>
+  </div>
+`).join('');
+
+/* TESTIMONIALS */
+let tIdx = 0;
+function renderT() {
+  document.getElementById('t-quote').textContent = '"' + TESTIMONIALS[tIdx].quote + '"';
+  document.getElementById('t-name').textContent = TESTIMONIALS[tIdx].name;
+  document.getElementById('t-role').textContent = TESTIMONIALS[tIdx].role;
+  document.getElementById('t-dots').innerHTML = TESTIMONIALS.map((_,i)=>`<button onclick="tIdx=${i};renderT()" class="${i===tIdx?'bg-brand w-8':'bg-white/30 w-2'} h-2 rounded-full transition-all"></button>`).join('');
+}
+document.getElementById('t-prev').onclick = () => { tIdx = (tIdx - 1 + TESTIMONIALS.length) % TESTIMONIALS.length; renderT(); };
+document.getElementById('t-next').onclick = () => { tIdx = (tIdx + 1) % TESTIMONIALS.length; renderT(); };
+renderT();
+setInterval(() => { tIdx = (tIdx + 1) % TESTIMONIALS.length; renderT(); }, 7000);
+
+/* CONTACT FORM (Web3Forms) */
+document.getElementById('contact-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('submit-btn');
+  const label = document.getElementById('btn-label');
+  const msg = document.getElementById('form-msg');
+  btn.disabled = true;
+  label.textContent = 'Sending...';
+  const fd = new FormData(e.target);
+  fd.append('access_key', 'YOUR_WEB3FORMS_ACCESS_KEY');
+  try {
+    const r = await fetch('https://api.web3forms.com/submit', { method:'POST', body: fd });
+    if (r.ok) {
+      label.textContent = 'Message sent!';
+      msg.textContent = 'Thanks — I\'ll reply within a day.';
+      msg.className = 'text-sm text-center text-brand';
+      msg.classList.remove('hidden');
+      e.target.reset();
+      setTimeout(() => { label.textContent = 'Send Message'; btn.disabled = false; msg.classList.add('hidden'); }, 4000);
+    } else throw new Error();
+  } catch {
+    label.textContent = 'Send Message';
+    btn.disabled = false;
+    msg.textContent = 'Something went wrong. Please try again.';
+    msg.className = 'text-sm text-center text-red-400';
+    msg.classList.remove('hidden');
+  }
+});
+
+/* SCROLL REVEAL & COUNTER LOGIC */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animate-fade-up');
+      entry.target.style.opacity = "1";
+      entry.target.querySelectorAll('.stat-number').forEach(animateStat);
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+function animateStat(el) {
+  const target = parseInt(el.getAttribute('data-target'));
+  const duration = 2000;
+  let startTimestamp = null;
+  const step = (timestamp) => {
+    if (!startTimestamp) startTimestamp = timestamp;
+    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+    el.innerText = Math.floor(progress * target);
+    if (progress < 1) window.requestAnimationFrame(step);
+  };
+  window.requestAnimationFrame(step);
+}
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+</script>
+</body>
+</html>
