@@ -466,6 +466,15 @@ const firebaseConfig = {
 if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 
+// Global Google Init
+window.onload = () => {
+  google.accounts.id.initialize({
+    client_id: "796454729595-spsmc6tr1t2anv1qvv23k68pk63q6usl.apps.googleusercontent.com",
+    callback: handleCredentialResponse,
+    ux_mode: "popup"
+  });
+};
+
 // Auth State Observer
 auth.onAuthStateChanged(user => {
   const btn = document.getElementById('nav-auth-btn');
@@ -481,7 +490,15 @@ auth.onAuthStateChanged(user => {
   }
 });
 
-function handleNavAuthClick() { auth.currentUser ? auth.signOut() : toggleAuthModal(); }
+function handleNavAuthClick() {
+  if (auth.currentUser) {
+    auth.signOut().then(() => {
+      google.accounts.id.disableAutoSelect();
+    });
+  } else {
+    toggleAuthModal();
+  }
+}
 
 async function handleEmailSignIn(e) {
   e.preventDefault();
@@ -521,12 +538,6 @@ function closeAuthModal() {
 function openAuthModal() {
   authModal.classList.remove('hidden');
   document.body.style.overflow = 'hidden';
-  
-  google.accounts.id.initialize({
-    client_id: "796454729595-spsmc6tr1t2anv1qvv23k68pk63q6usl.apps.googleusercontent.com",
-    callback: handleCredentialResponse,
-    ux_mode: "popup"
-  });
   google.accounts.id.renderButton(
     document.getElementById("google-signin-btn"),
     { theme: "outline", size: "large", width: "100%", text: "continue_with" }
