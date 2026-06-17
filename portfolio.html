@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Christian Arevalo — UI/UX Designer & Web Developer</title>
-<meta name="description" content="Premium portfolio of Alex Morgan — UI/UX designer and web developer crafting intuitive interfaces and high-performance websites." />
+<meta name="description" content="Premium portfolio of Christian Arevalo — UI/UX designer and web developer crafting intuitive interfaces and high-performance websites." />
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -124,7 +124,7 @@
     <div class="lg:col-span-5">
       <div class="relative">
         <div class="absolute -inset-4 rounded-3xl blur-2xl opacity-40 -z-10" style="background: rgba(59,130,246,0.5);"></div>
-        <img src="img/arevalo.png" alt="Alex Morgan portrait" loading="lazy" class="w-full rounded-3xl object-cover aspect-[4/5] border border-white/10"/>
+        <img src="img/arevalo.png" alt="Christian Arevalo portrait" loading="lazy" class="w-full rounded-3xl object-cover aspect-[4/5] border border-white/10"/>
       </div>
     </div>
     <div class="lg:col-span-7 space-y-8">
@@ -133,7 +133,7 @@
         <h3 class="font-display text-4xl md:text-5xl font-bold leading-tight">Design that ships.<br/>Code that scales.</h3>
       </div>
       <p class="text-lg text-white/60 leading-relaxed">
-        I'm Alex — a designer and developer with six years of experience building digital products for startups and studios. My work sits at the intersection of carefully considered interfaces and production-grade engineering.
+        I'm Christian — a designer and developer with a passion for building digital products that balance aesthetic elegance with high-performance engineering.
       </p>
       <div class="grid sm:grid-cols-3 gap-4 pt-4">
         <div class="glass rounded-2xl p-6 hover:border-brand/40 transition-all hover:-translate-y-1">
@@ -267,14 +267,14 @@
 <!-- FOOTER -->
 <footer class="py-12 px-6 border-t border-white/10">
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-    <div class="font-display text-2xl font-bold">ALEX<span class="text-brand">.</span></div>
+    <div class="font-display text-2xl font-bold">CHRISTIAN<span class="text-brand">.</span></div>
     <div class="flex gap-8 text-sm text-white/50">
       <a href="#about" class="hover:text-white transition-colors">About</a>
       <a href="#work" class="hover:text-white transition-colors">Work</a>
       <a href="#services" class="hover:text-white transition-colors">Services</a>
       <a href="#contact" class="hover:text-white transition-colors">Contact</a>
     </div>
-    <p class="text-xs text-white/40">© 2026 Alex Morgan. All rights reserved.</p>
+    <p class="text-xs text-white/40">© 2026 Christian Arevalo. All rights reserved.</p>
   </div>
 </footer>
 
@@ -282,7 +282,7 @@
 <div id="auth-modal" class="fixed inset-0 z-50 bg-brand-dark/80 backdrop-blur-md overflow-y-auto hidden">
   <div class="min-h-screen p-4 flex items-center justify-center">
     <div class="w-full max-w-md bg-brand-surface border border-white/10 rounded-3xl p-8 space-y-6 relative animate-fade-up">
-      <button onclick="toggleAuthModal()" class="absolute top-4 right-4 w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-brand transition-colors">
+      <button onclick="closeAuthModal()" class="absolute top-4 right-4 w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-brand transition-colors">
         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
       <div class="text-center">
@@ -480,39 +480,43 @@ async function handleEmailSignIn(e) {
   const password = document.getElementById('auth-password').value;
   try {
     await auth.signInWithEmailAndPassword(email, password);
-    toggleAuthModal();
+    closeAuthModal();
   } catch (error) {
     alert("Error: " + error.message);
   }
 }
 
-function ensureAuth(e) { if (!auth.currentUser) { e.preventDefault(); e.target.blur(); toggleAuthModal(); } }
+function ensureAuth(e) { if (!auth.currentUser) { e.preventDefault(); e.target.blur(); openAuthModal(); } }
 
-function toggleAuthModal() {
-  authModal.classList.toggle('hidden');
-  document.body.style.overflow = authModal.classList.contains('hidden') ? '' : 'hidden';
+function toggleAuthModal() { authModal.classList.contains('hidden') ? openAuthModal() : closeAuthModal(); }
 
-  if (!authModal.classList.contains('hidden')) {
-    // Initialize Google Sign-In with Popup mode
-    google.accounts.id.initialize({
-      client_id: "796454729595-spsmc6tr1t2anv1qvv23k68pk63q6usl.apps.googleusercontent.com",
-      callback: handleCredentialResponse,
-      ux_mode: "popup"
-    });
-    google.accounts.id.renderButton(
-      document.getElementById("google-signin-btn"),
-      { theme: "outline", size: "large", width: "100%", text: "continue_with" }
-    );
-  }
+function closeAuthModal() {
+  authModal.classList.add('hidden');
+  document.body.style.overflow = '';
+}
+
+function openAuthModal() {
+  authModal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+  
+  google.accounts.id.initialize({
+    client_id: "796454729595-spsmc6tr1t2anv1qvv23k68pk63q6usl.apps.googleusercontent.com",
+    callback: handleCredentialResponse,
+    ux_mode: "popup"
+  });
+  google.accounts.id.renderButton(
+    document.getElementById("google-signin-btn"),
+    { theme: "outline", size: "large", width: "100%", text: "continue_with" }
+  );
 }
 function handleCredentialResponse(response) {
   const credential = firebase.auth.GoogleAuthProvider.credential(response.credential);
   auth.signInWithCredential(credential).then(() => {
-    toggleAuthModal();
+    closeAuthModal();
   }).catch(error => console.error(error));
 }
 
-authModal.addEventListener('click', e => { if (e.target === authModal) toggleAuthModal(); });
+authModal.addEventListener('click', e => { if (e.target === authModal) closeAuthModal(); });
 
 /* SERVICES */
 document.getElementById('services-grid').innerHTML = SERVICES.map(s => `
