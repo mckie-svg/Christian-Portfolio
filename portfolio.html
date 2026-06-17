@@ -491,13 +491,14 @@ auth.onAuthStateChanged(user => {
   }
 });
 
-function handleNavAuthClick() {
+async function handleNavAuthClick() {
   if (auth.currentUser) {
-    auth.signOut().then(() => {
+    try {
+      await auth.signOut();
       google.accounts.id.disableAutoSelect();
-    });
+    } catch (err) { console.error(err); }
   } else {
-    toggleAuthModal();
+    openAuthModal();
   }
 }
 

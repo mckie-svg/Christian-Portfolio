@@ -491,13 +491,14 @@ auth.onAuthStateChanged(user => {
   }
 });
 
-function handleNavAuthClick() {
+async function handleNavAuthClick() {
   if (auth.currentUser) {
-    auth.signOut().then(() => {
-      google.accounts.id.disableAutoSelect(); // This forces the account picker next time
-    });
+    try {
+      await auth.signOut();
+      google.accounts.id.disableAutoSelect();
+    } catch (err) { console.error(err); }
   } else {
-    toggleAuthModal();
+    openAuthModal();
   }
 }
 
@@ -545,12 +546,11 @@ function closeAuthModal() {
 function openAuthModal() {
   authModal.classList.remove('hidden');
   document.body.style.overflow = 'hidden';
-  
-    // Re-render button specifically when modal opens
-    google.accounts.id.renderButton(
-      document.getElementById("google-signin-btn"),
-      { theme: "outline", size: "large", width: "100%", text: "continue_with" }
-    );
+
+  google.accounts.id.renderButton(
+    document.getElementById("google-signin-btn"),
+    { theme: "outline", size: "large", width: "100%", text: "continue_with" }
+  );
 }
 
 function handleCredentialResponse(response) {
