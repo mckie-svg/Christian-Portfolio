@@ -476,7 +476,7 @@ function toggleAuthModal() {
   document.body.style.overflow = authModal.classList.contains('hidden') ? '' : 'hidden';
 
   if (!authModal.classList.contains('hidden')) {
-    // Initialize Google Sign-In with Redirect mode for the new web server callback
+    // Initialize Google Sign-In with Popup mode
     google.accounts.id.initialize({
       client_id: "796454729595-spsmc6tr1t2anv1qvv23k68pk63q6usl.apps.googleusercontent.com",
       callback: handleCredentialResponse,
