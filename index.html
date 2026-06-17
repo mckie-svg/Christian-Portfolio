@@ -298,6 +298,9 @@
           <label class="text-xs uppercase tracking-widest text-white/50 font-medium">Password</label>
           <input type="password" id="auth-password" required placeholder="••••••••" class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-brand transition-colors"/>
         </div>
+        <div class="text-right">
+          <button type="button" onclick="handleForgotPassword()" class="text-xs text-brand hover:underline">Forgot Password?</button>
+        </div>
         <button type="submit" class="w-full py-4 bg-brand text-white rounded-xl font-bold hover:shadow-glow-lg transition-all">Sign In</button>
       </form>
       <div class="relative py-4 flex items-center justify-center">
@@ -464,6 +467,7 @@ auth.onAuthStateChanged(user => {
   if (user) {
     btn.textContent = 'Sign Out';
     btn.classList.add('border-brand/40', 'text-brand');
+    closeAuthModal(); // Automatically close modal on successful login
     // Pre-fill contact form
     if(document.getElementById('contact-name')) document.getElementById('contact-name').value = user.displayName || '';
     if(document.getElementById('contact-email')) document.getElementById('contact-email').value = user.email || '';
@@ -482,6 +486,20 @@ async function handleEmailSignIn(e) {
   try {
     await auth.signInWithEmailAndPassword(email, password);
     closeAuthModal();
+  } catch (error) {
+    alert("Error: " + error.message);
+  }
+}
+
+async function handleForgotPassword() {
+  const email = document.getElementById('auth-email').value;
+  if (!email) {
+    alert("Please enter your email address first so we know where to send the reset link.");
+    return;
+  }
+  try {
+    await auth.sendPasswordResetEmail(email);
+    alert("Password reset email sent! Please check your inbox.");
   } catch (error) {
     alert("Error: " + error.message);
   }
